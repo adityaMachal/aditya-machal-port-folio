@@ -92,7 +92,7 @@ const Hero = () => {
 
         <div className="flex gap-4 justify-center flex-wrap">
           <Button asChild size="lg" className="gap-2">
-            <a href="#">
+            <a href="https://drive.google.com/file/d/1voOk3zz4dM5wDoBYEfz4fepSxjUx9GpV/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
               <Download size={18} /> Download CV
             </a>
           </Button>
