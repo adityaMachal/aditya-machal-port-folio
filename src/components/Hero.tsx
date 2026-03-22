@@ -11,16 +11,36 @@ const Hero = () => {
   const [fadeSubtitle, setFadeSubtitle] = useState(true);
   const [loaded, setLoaded] = useState(false);
 
-  // Typing effect
   useEffect(() => {
     setLoaded(true);
     let i = 0;
-    const interval = setInterval(() => {
-      setTyped(fullName.slice(0, i + 1));
-      i++;
-      if (i >= fullName.length) clearInterval(interval);
-    }, 100);
-    return () => clearInterval(interval);
+    let deleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
+
+    const tick = () => {
+      if (!deleting) {
+        i++;
+        setTyped(fullName.slice(0, i));
+        if (i >= fullName.length) {
+          deleting = true;
+          timeout = setTimeout(tick, 1500); // pause before erasing
+          return;
+        }
+        timeout = setTimeout(tick, 120);
+      } else {
+        i--;
+        setTyped(fullName.slice(0, i));
+        if (i <= 0) {
+          deleting = false;
+          timeout = setTimeout(tick, 500); // pause before retyping
+          return;
+        }
+        timeout = setTimeout(tick, 60);
+      }
+    };
+
+    timeout = setTimeout(tick, 300);
+    return () => clearTimeout(timeout);
   }, []);
 
   // Subtitle cycling
