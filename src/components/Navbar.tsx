@@ -7,6 +7,7 @@ const links = ["About", "Skills", "Projects", "Achievements", "Contact"];
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
