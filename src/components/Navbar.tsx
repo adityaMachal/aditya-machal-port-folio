@@ -38,7 +38,7 @@ const Navbar = () => {
           </button>
 
           {/* Desktop */}
-          <ul className="hidden md:flex gap-8">
+          <ul className="hidden md:flex gap-8 items-center">
             {links.map((l) => (
               <li key={l}>
                 <button
@@ -49,12 +49,30 @@ const Navbar = () => {
                 </button>
               </li>
             ))}
+            <li>
+              <button
+                onClick={toggle}
+                className="p-2 rounded-md text-muted-foreground hover:text-primary transition-colors active:scale-95"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            </li>
           </ul>
 
           {/* Mobile toggle */}
-          <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={toggle}
+              className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button className="text-foreground" onClick={() => setOpen(!open)}>
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
