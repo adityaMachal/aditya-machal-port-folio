@@ -11,10 +11,10 @@ const achievements = [
 ];
 
 const certs = [
-  "Supervised Machine Learning — DeepLearning.ai / Stanford (Mar 2025)",
-  "Python for Data Science & AI — IBM / Coursera (Oct 2024)",
-  "Bits and Bytes of Computer Networking — Google (Sep 2024)",
-  "DSA Summer Training — CipherSchools (Jun–Aug 2025)",
+  { name: "Supervised Machine Learning — DeepLearning.ai / Stanford (Mar 2025)", link: "https://coursera.org/share/1ed7f65d2892c32792eb85aa0fea3e73" },
+  { name: "Python for Data Science & AI — IBM / Coursera (Oct 2024)", link: "https://coursera.org/share/93ad4786017a7ffffd029dfc4aa30acd" },
+  { name: "Bits and Bytes of Computer Networking — Google (Sep 2024)", link: "https://coursera.org/share/4d9b94d5c5e0fa6366ebaa6cc2295a1f" },
+  { name: "DSA Summer Training — CipherSchools (Jun–Aug 2025)", link: "https://www.cipherschools.com/certificate/preview?id=6899813396ea942c45e7bc7c" },
 ];
 
 const Achievements = () => {
@@ -43,13 +43,20 @@ const Achievements = () => {
         <h3 className="text-xl font-semibold text-center mb-6 text-foreground">Certifications</h3>
         <div className="flex flex-wrap gap-3 justify-center">
           {certs.map((c) => (
-            <Badge
-              key={c}
-              variant="outline"
-              className="px-4 py-2 text-xs text-muted-foreground border-border"
+            <a
+              key={c.name}
+              href={c.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform hover:scale-105"
             >
-              {c}
-            </Badge>
+              <Badge
+                variant="outline"
+                className="px-4 py-2 text-xs text-muted-foreground border-border hover:border-primary/40 hover:bg-primary/5 transition-colors cursor-pointer"
+              >
+                {c.name}
+              </Badge>
+            </a>
           ))}
         </div>
       </div>
