@@ -1,11 +1,33 @@
 import { useFadeIn } from "@/hooks/useFadeIn";
 
-const row1 = ["Python", "C++", "SQL", "Java", "PyTorch", "TensorFlow", "Scikit-learn", "FastAPI", "Docker"];
-const row2 = ["Streamlit", "LangChain", "CrewAI", "MLflow", "PostgreSQL", "MySQL", "Git", "Jupyter", "Power BI"];
+const techs = [
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+  { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+  { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+  { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+  { name: "Scikit-learn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+  { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "Streamlit", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" },
+  { name: "LangChain", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "CrewAI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "MLflow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
+  { name: "Power BI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+];
 
-const Badge = ({ name }: { name: string }) => (
-  <span className="inline-flex items-center px-5 py-2.5 rounded-full bg-secondary text-foreground text-sm font-medium whitespace-nowrap border border-border hover:border-primary/40 transition-colors">
-    {name}
+const row1 = techs.slice(0, 9);
+const row2 = techs.slice(9);
+
+const TechBadge = ({ name, icon }: { name: string; icon: string }) => (
+  <span className="inline-flex flex-col items-center gap-2 px-6 py-4 rounded-xl bg-secondary border border-border hover:border-primary/40 transition-colors min-w-[100px]">
+    <img src={icon} alt={name} className="w-10 h-10" loading="lazy" />
+    <span className="text-xs text-muted-foreground font-medium whitespace-nowrap">{name}</span>
   </span>
 );
 
@@ -19,20 +41,18 @@ const TechStack = () => {
         <p className="text-muted-foreground text-center">Technologies I work with daily</p>
       </div>
 
-      {/* Row 1 - left scroll */}
       <div className="hover-pause mb-4">
         <div className="animate-marquee flex gap-4 w-max">
           {[...row1, ...row1].map((t, i) => (
-            <Badge key={`r1-${i}`} name={t} />
+            <TechBadge key={`r1-${i}`} {...t} />
           ))}
         </div>
       </div>
 
-      {/* Row 2 - right scroll */}
       <div className="hover-pause">
         <div className="animate-marquee-reverse flex gap-4 w-max">
           {[...row2, ...row2].map((t, i) => (
-            <Badge key={`r2-${i}`} name={t} />
+            <TechBadge key={`r2-${i}`} {...t} />
           ))}
         </div>
       </div>
