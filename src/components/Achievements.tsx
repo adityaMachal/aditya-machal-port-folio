@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 const achievements = [
   { icon: Trophy, text: "Ranked 8th in EPIC Institute of Technology entrance examination" },
   { icon: Star, text: "4★ HackerRank rating in Python, C++, and Java" },
-  { icon: Code, text: "Solved 180+ DSA problems across LeetCode and GeeksForGeeks" },
+  { icon: Code, text: "Solved 500+ DSA problems across LeetCode and GeeksForGeeks" },
   { icon: Award, text: "Ranked in Top 5,000 students university-wide on GeeksForGeeks" },
   { icon: Zap, text: "Codeforces rating 1000+ through competitive programming" },
 ];
