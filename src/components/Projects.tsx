@@ -12,7 +12,7 @@ const projects = [
   {
     title: "Adversarial Robustness on MNIST",
     desc: "Investigates supervised learning model robustness against adversarial attacks using FGSM. Evaluates accuracy degradation under varying perturbation levels with full visualizations.",
-    tags: ["Python", "Scikit-learn", "FGSM", "FastAPI", "Docker", "MLOps"],
+    tags: ["Python", "Scikit-learn", "FGSM", "FastAPI", "Docker", "MLOps", "Jupyter"],
     link: "https://github.com/adityaMachal/AdversarialRobustnessMNIST",
   },
   {
