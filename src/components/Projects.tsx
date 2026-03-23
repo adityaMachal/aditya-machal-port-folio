@@ -6,7 +6,7 @@ const projects = [
   {
     title: "MeetCapsule",
     desc: "Transforms 1-hour video meetings into 1-minute summaries. Scalable end-to-end pipeline using Whisper-v3 for transcription and Gemini for automated action-item extraction.",
-    tags: ["Python", "Whisper-v3", "Gemini API", "FastAPI", "NLP"],
+    tags: ["Python", "Whisper-v3", "Gemini API", "FastAPI", "NLP", "Docker", "PostgreSQL"],
     link: "https://github.com/adityaMachal/MeetCapsule",
   },
   {
